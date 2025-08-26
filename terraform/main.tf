@@ -96,67 +96,67 @@ resource "google_cloudbuild_trigger" "docker_tag_build" {
 }
 
 # Cloud Run Service
-resource "google_cloud_run_v2_service" "britedge-runservice" {
-  name     = "britedge-runservice"
-  location = var.region
-  project  = var.project_id
+#resource "google_cloud_run_v2_service" "britedge-runservice" {
+  #name     = "britedge-runservice"
+  #location = var.region
+  #project  = var.project_id
 
-  template {
-    containers {
-      image = "${var.region}-docker.pkg.dev/${var.project_id}/britedge-e1/britedge-run:${var.dockertag}"
+  #template {
+    #containers {
+      #image = "${var.region}-docker.pkg.dev/${var.project_id}/britedge-e1/britedge-run:${var.dockertag}"
 
-      resources {
-        limits = {
-         memory = "512Mi"
-          cpu    = "1000m"
-        }
-      }
+      #resources {
+        #limits = {
+         #memory = "512Mi"
+          #cpu    = "1000m"
+        #}
+      #}
 
-      ports {
-        container_port = 8080
-      }
+      #ports {
+        #container_port = 8080
+      #
 
-      env {
-        name  = "DB_HOST"
-        value = google_sql_database_instance.britedge-sql-instance.private_ip_address
-      }
-      env {
-        name  = "DB_USER"
-        value = google_sql_user.britedge-user.name
-      }
-      env {
-        name = "DB_PASS"
-        value_source {
-          secret_key_ref {
-            secret  = "CloudSQL-user"
-            version = "1"
-          }
-        }
-      }
-      env {
-        name  = "DB_NAME"
-        value = google_sql_database.britedge-database.name
-      }
-    }
+      #env {
+        #name  = "DB_HOST"
+        #value = google_sql_database_instance.britedge-sql-instance.private_ip_address
+      #}
+      #env {
+        #name  = "DB_USER"
+        #value = google_sql_user.britedge-user.name
+      #
+      #nv {
+        #ame = "DB_PASS"
+        #value_source {
+          #secret_key_ref {
+            #secret  = "CloudSQL-user"
+            #version = "1"
+          #}
+        #}
+      #}
+      #env {
+        #name  = "DB_NAME"
+        #value = google_sql_database.britedge-database.name
+      #}
+    #}
 
-    vpc_access {
-      connector = google_vpc_access_connector.britedge-connector.id
-      egress    = "ALL_TRAFFIC"
-    }
-  }
-  traffic {
-    percent = 100
-    type    = "TRAFFIC_TARGET_ALLOCATION_TYPE_LATEST"
-  }
-}
+    #vpc_access {
+      #connector = google_vpc_access_connector.britedge-connector.id
+      #egress    = "ALL_TRAFFIC"
+    #}
+  #}
+  #traffic {
+    #percent = 100
+    #type    = "TRAFFIC_TARGET_ALLOCATION_TYPE_LATEST"
+  #}
+#}
 
 # Grant public (allUsers) access to Cloud Run service
-resource "google_cloud_run_v2_service_iam_member" "public_invoker" {
-  project        = var.project_id
-  location       = var.region
-  name           = google_cloud_run_v2_service.britedge-runservice.name
-  role           = "roles/run.invoker"
-  member         = "allUsers"
+#resource "google_cloud_run_v2_service_iam_member" "public_invoker" {
+  #project        = var.project_id
+  #location       = var.region
+  #name           = google_cloud_run_v2_service.britedge-runservice.name
+  #role           = "roles/run.invoker"
+  #member         = "allUsers"
 }
 
 resource "google_compute_network" "britedge-vpc" {
@@ -239,6 +239,7 @@ resource "google_sql_user" "britedge-user" {
   instance = google_sql_database_instance.britedge-sql-instance.name
   password = "Password1"
 }
+
 
 
 

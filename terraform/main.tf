@@ -214,7 +214,7 @@ resource "google_sql_database_instance" "britedge-sql-instance" {
     }
     backup_configuration {
       enabled = true
-      binary_log_enabled = true
+      // binary_log_enabled = true
     }
     availability_type = "REGIONAL"
   }
@@ -239,6 +239,7 @@ resource "google_sql_user" "britedge-user" {
   instance = google_sql_database_instance.britedge-sql-instance.name
   password = "Password1"
 }
+
 
 
 

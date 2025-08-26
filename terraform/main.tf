@@ -103,7 +103,7 @@ resource "google_cloud_run_v2_service" "britedge-runservice" {
 
   template {
     containers {
-      image = "europe-west1-docker.pkg.dev/${var.project_id}/britedge-e1/britedge-run:${var.dockertag}"
+      image = "${var.region}-docker.pkg.dev/${var.project_id}/britedge-e1/britedge-run:${var.dockertag}"
 
       resources {
         limits = {
@@ -239,6 +239,7 @@ resource "google_sql_user" "britedge-user" {
   instance = google_sql_database_instance.britedge-sql-instance.name
   password = "Password1"
 }
+
 
 
 

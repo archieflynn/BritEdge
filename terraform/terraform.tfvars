@@ -1,6 +1,6 @@
 github_owner                 = "ArchieFynnAda" // My GitHub Username
 repo_name                    = "AFBritEdge" // My forked repo name
-project_id                   = "britedge" // My GCP Project ID
+project_id                   = "britedge2" // My GCP Project ID
 region                       = "europe-west2" //  region
 build_sa_name                  = "cloudbuild@britedge2.iam.gserviceaccount.com" // Replace with your Project ID
 github_app_installation_id   = "82731610" // Installion ID from connecting GitHub

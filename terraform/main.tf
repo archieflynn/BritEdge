@@ -157,7 +157,7 @@ resource "google_cloudbuild_trigger" "docker_tag_build" {
   #name           = google_cloud_run_v2_service.britedge-runservice.name
   #role           = "roles/run.invoker"
   #member         = "allUsers"
-}
+#}
 
 resource "google_compute_network" "britedge-vpc" {
   name                    = "britedge-vpc"
@@ -239,6 +239,7 @@ resource "google_sql_user" "britedge-user" {
   instance = google_sql_database_instance.britedge-sql-instance.name
   password = "Password1"
 }
+
 
 
 

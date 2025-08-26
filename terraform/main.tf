@@ -92,6 +92,8 @@ resource "google_cloudbuild_trigger" "docker_tag_build" {
     _APPLY           = "Y"
     _APPREGISTRYPATH = "${var.region}-docker.pkg.dev/${var.project_id}/britedge-e1"
     _IMAGE_NAME      = "britedge-run"
+    TAG_NAME         = "v0.0.1"
+    COMMIT_SHA       = "HEAD"
   }
 }
 
@@ -239,6 +241,7 @@ resource "google_sql_user" "britedge-user" {
   instance = google_sql_database_instance.britedge-sql-instance.name
   password = "Password1"
 }
+
 
 
 

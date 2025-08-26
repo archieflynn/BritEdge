@@ -28,7 +28,7 @@ resource "google_cloudbuild_trigger" "cloud_run_pr_trigger" {
   location    = var.region
   project     = var.project_id
   
-  service_account = "projects/${var.project_id}/serviceAccounts/${var.buildsaname}"
+  service_account = "projects/${var.project_id}/serviceAccounts/${var.build_sa_name}"
   
   repository_event_config {
     repository = google_cloudbuildv2_repository.repo.id
@@ -52,7 +52,7 @@ resource "google_cloudbuild_trigger" "cloud_run_push_trigger" {
   location    = var.region
   project     = var.project_id
   
-  service_account = "projects/${var.project_id}/serviceAccounts/${var.buildsaname}"
+  service_account = "projects/${var.project_id}/serviceAccounts/${var.build_sa_name}"
   
   repository_event_config {
     repository = google_cloudbuildv2_repository.repo.id
@@ -76,7 +76,7 @@ resource "google_cloudbuild_trigger" "docker_tag_build" {
   location    = var.region
   project     = var.project_id
   
-  service_account = "projects/${var.project_id}/serviceAccounts/${var.buildsaname}"
+  service_account = "projects/${var.project_id}/serviceAccounts/${var.build_sa_name}"
 
   repository_event_config {
     repository = google_cloudbuildv2_repository.repo.id
@@ -239,3 +239,4 @@ resource "google_sql_user" "britedge-user" {
   instance = google_sql_database_instance.britedge-sql-instance.name
   password = "Password1"
 }
+

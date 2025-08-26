@@ -19,7 +19,7 @@ variable "repo_name" {
   type        = string
 }
 
-variable "buildsaname" {
+variable "build_sa_name" {
   description = "Service account email used by Cloud Build triggers"
   type        = string
 }
@@ -45,3 +45,4 @@ variable "cloudsql_password_secret" {
   description = "Secret Manager resource name for Cloud SQL password - (format: projects/PROJECT_ID/secrets/SECRET_NAME/versions/VERSION)"
   type        = string
 }
+

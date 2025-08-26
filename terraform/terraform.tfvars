@@ -6,4 +6,4 @@ build_sa_name                  = "cloudbuild@britedge2.iam.gserviceaccount.com" 
 github_app_installation_id   = "82731610" // Installion ID from connecting GitHub
 github_oauth_token_secret    = "projects/britedge2/secrets/britedge-eu1-github-oauthtoken/versions/1"
 dockertag                    = "v0.0.1" // first version tag
-cloudsql_password_secret     = "projects/your-gcp-project-id/secrets/CloudSQL-user/versions/1"
+cloudsql_password_secret     = "projects/britedge2/secrets/CloudSQL-user/versions/1"

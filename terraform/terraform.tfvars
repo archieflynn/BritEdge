@@ -4,6 +4,6 @@ project_id                   = "britedge2" // My GCP Project ID
 region                       = "europe-west2" //  region
 build_sa_name                  = "cloudbuild@britedge2.iam.gserviceaccount.com" // Replace with your Project ID
 github_app_installation_id   = "82921739" 
-github_oauth_token_secret    = "projects/631943055395/secrets/github-github-oauthtoken-215e81"
+github_oauth_token_secret    = "projects/631943055395/secrets/github-github-oauthtoken-215e81/versions/1"
 dockertag                    = "v0.0.1" // first version tag
 cloudsql_password_secret     = "projects/britedge2/secrets/CloudSQL-user/versions/1"

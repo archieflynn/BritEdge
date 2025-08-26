@@ -1,5 +1,5 @@
-github_owner                 = "ArchieFynnAda" // My GitHub Username
-repo_name                    = "AFBritEdge" // My forked repo name
+github_owner                 = "archieflynn" // My GitHub Username
+repo_name                    = "BritEdge" // My forked repo name
 project_id                   = "britedge2" // My GCP Project ID
 region                       = "europe-west2" //  region
 build_sa_name                  = "cloudbuild@britedge2.iam.gserviceaccount.com" // Replace with your Project ID

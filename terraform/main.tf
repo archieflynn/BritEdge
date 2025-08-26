@@ -90,7 +90,7 @@ resource "google_cloudbuild_trigger" "docker_tag_build" {
 
   substitutions = {
     _APPLY           = "Y"
-    _APPREGISTRYPATH = "europe-west1-docker.pkg.dev/hazel-sky-467411-j9/britedge-e1"
+    _APPREGISTRYPATH = "europe-west1-docker.pkg.dev/${var.project_id}/britedge-e1"
     _IMAGE_NAME      = "britedge-run"
   }
 }
@@ -239,4 +239,5 @@ resource "google_sql_user" "britedge-user" {
   instance = google_sql_database_instance.britedge-sql-instance.name
   password = "Password1"
 }
+
 
